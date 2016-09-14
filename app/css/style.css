@@ -2,43 +2,4 @@
 
 /**********************************************************Common******************************************************/
 
-[nav-view-transition="ios"] [nav-view="entering"],
-[nav-view-transition="ios"] [nav-view="leaving"] {
-    -webkit-transition-property: -webkit-transform;
-    transition-property: transform;
-}
-[nav-view-transition="ios"][nav-view-direction="forward"],
-[nav-view-transition="ios"][nav-view-direction="back"] {
-    background-color: transparent;
-}
-
-.platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
-    height: 64px; }
-.platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
-    margin-top: 19px !important; }
-.platform-android.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
-    margin-top: 20px; }
-.platform-android.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-android.platform-cordova:not(.fullscreen) .tabs.tabs-top {
-    top: 64px; }
-.platform-android.platform-cordova:not(.fullscreen) .has-header, .platform-android.platform-cordova:not(.fullscreen) .bar-subheader {
-    top: 64px; }
-.platform-android.platform-cordova:not(.fullscreen) .has-subheader {
-    top: 108px; }
-.platform-android.platform-cordova:not(.fullscreen) .has-header.has-tabs-top {
-    top: 113px; }
-.platform-android.platform-cordova:not(.fullscreen) .has-header.has-subheader.has-tabs-top {
-    top: 157px; }
-.platform-android.platform-cordova .popover .bar-header:not(.bar-subheader) {
-    height: 44px; }
-.platform-android.platform-cordova .popover .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
-    margin-top: -1px; }
-.platform-android.platform-cordova .popover .bar-header:not(.bar-subheader) > * {
-    margin-top: 0; }
-.platform-android.platform-cordova .popover .has-header, .platform-android.platform-cordova .popover .bar-subheader {
-    top: 44px; }
-.platform-android.platform-cordova .popover .has-subheader {
-    top: 88px; }
-.platform-android.platform-cordova.status-bar-hide {
-    margin-bottom: 20px; }
-
 /**********************************************************Common******************************************************/

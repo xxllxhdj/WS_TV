@@ -47,7 +47,6 @@
     "cordova-plugin-x-toast"
   ],
   "localPlugins": [
-    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "android"
