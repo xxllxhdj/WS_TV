@@ -11,6 +11,10 @@
     background: transparent;
 }
 
+.tvFocus {
+	border-color: brown !important;
+}
+
 /**********************************************************Common******************************************************/
 
 /***********************************************************home*******************************************************/
@@ -26,32 +30,28 @@
 	height: 100%;
 	padding: 0;
 }
+.first-col > div,
+.second-col > div,
+.third-col > div:first-child,
+.third-col > .row > .col {
+	background: whitesmoke;
+	border: 10px solid transparent;
+	background-clip: padding-box;
+}
 .first-col > div {
 	height: 33.333%;
-    background: whitesmoke;
-    border: 10px solid transparent;
-    background-clip: padding-box;
 }
 .second-col > div {
 	height: 100%;
-	background: whitesmoke;
-	border: 10px solid transparent;
-    background-clip: padding-box;
 }
 .third-col > div:first-child {
 	height: 50%;
-	background: whitesmoke;
-	border: 10px solid transparent;
-    background-clip: padding-box;
 }
 .third-col > .row {
 	height: 50%;
     padding: 0;
 }
 .third-col > .row > .col {
-	background: whitesmoke;
-	border: 10px solid transparent;
-    background-clip: padding-box;
     padding: 0;
 }
 

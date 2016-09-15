@@ -2,6 +2,7 @@
 angular.module('WorkStationTV', [
     'ionic',
     'ngCordova',
+    'ionicTV',
 
     'WorkStationTV.controllers',
     'WorkStationTV.directives',
@@ -37,7 +38,8 @@ angular.module('WorkStationTV', [
             $stateProvider
                 .state('home', {
                     url: '/home',
-                    templateUrl: 'tpls/home.html'
+                    templateUrl: 'tpls/home.html',
+                    controller: 'HomeController'
                 });
                 
             $urlRouterProvider.otherwise('/home');

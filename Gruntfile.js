@@ -57,7 +57,8 @@ module.exports = function (grunt) {
                     server: {
                         baseDir: ['<%= config.app %>'],
                         routes: {
-                            '/bower_components': './bower_components'
+                            '/bower_components': './bower_components',
+                            '/src': './src'
                         }
                     }
                 }
