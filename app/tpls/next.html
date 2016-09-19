@@ -1,0 +1,27 @@
+<ion-view focus-manager>
+    <ion-header-bar>
+        <div class="buttons">
+            <button class="button" focus-index="1" next-focus-right="2" next-focus-down="3" focus-init ng-click="goBack()">后退按钮</button>
+        </div>
+        <h1 class="title">Next</h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+    	<div class="row row-container">
+    		<div class="col first-col">
+    			<div focus-index="3" next-focus-right="6" next-focus-down="4" next-focus-up="1"></div>
+    			<div focus-index="4" next-focus-right="6" next-focus-down="5" next-focus-up="1"></div>
+    			<div focus-index="5" next-focus-right="6" next-focus-up="4" next-focus-up="1"></div>
+    		</div>
+    		<div class="col second-col">
+    			<div focus-index="6" next-focus-right="7" next-focus-left="4" next-focus-up="1"></div>
+    		</div>
+    		<div class="col third-col">
+    			<div focus-index="7" next-focus-left="6" next-focus-up="2" next-focus-down="8"></div>
+    			<div class="row">
+    				<div class="col" focus-index="8" next-focus-right="9" next-focus-left="6" next-focus-up="7"></div>
+    				<div class="col" focus-index="9" next-focus-left="8" next-focus-up="7"></div>
+    			</div>
+    		</div>
+    	</div>
+    </ion-content>
+</ion-view>

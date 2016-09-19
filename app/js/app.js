@@ -40,6 +40,11 @@ angular.module('WorkStationTV', [
                     url: '/home',
                     templateUrl: 'tpls/home.html',
                     controller: 'HomeController'
+                })
+                .state('next', {
+                    url: '/next',
+                    templateUrl: 'tpls/next.html',
+                    controller: 'NextController'
                 });
                 
             $urlRouterProvider.otherwise('/home');
