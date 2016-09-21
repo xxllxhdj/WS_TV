@@ -1,22 +1,22 @@
 <ion-view focus-manager>
     <ion-header-bar>
         <div class="buttons">
-            <button class="button" focus-index="1" ng-click="headerBtnLeft()" next-focus-right="2" next-focus-down="3">左侧按钮</button>
+            <div class="button" focus-index="1" ng-click="headerBtnLeft()" next-focus-right="2" next-focus-down="3">左侧按钮</div>
         </div>
         <h1 class="title">TV</h1>
         <div class="buttons">
-            <button class="button" focus-index="2" next-focus-left="1" next-focus-down="10">右侧按钮</button>
+            <div class="button" focus-index="2" next-focus-left="1" next-focus-down="10">右侧按钮</div>
         </div>
     </ion-header-bar>
     <ion-content scroll="false">
     	<div class="row row-container">
     		<div class="col first-col">
-    			<div focus-index="3" next-focus-right="6" next-focus-down="4" next-focus-up="1" focus-init ng-click="goNext()"></div>
-    			<div focus-index="4" next-focus-right="6" next-focus-down="5" next-focus-up="3"></div>
+    			<div focus-index="3" next-focus-right="6" next-focus-down="4" next-focus-up="1" ng-click="goNext()"></div>
+    			<div focus-index="4" next-focus-right="6" next-focus-down="5" next-focus-up="3" on-hold="onHold()"></div>
     			<div focus-index="5" next-focus-right="6" next-focus-down="13" next-focus-up="4"></div>
     		</div>
     		<div class="col second-col">
-    			<div focus-index="6" next-focus-right="7" next-focus-left="4" next-focus-up="1" next-focus-down="13"></div>
+    			<div focus-index="6" next-focus-right="7" next-focus-left="4" next-focus-up="1" next-focus-down="13" focus-init></div>
     		</div>
     		<div class="col third-col">
     			<div focus-index="7" next-focus-right="10" next-focus-left="6" next-focus-up="2" next-focus-down="8"></div>
@@ -37,8 +37,8 @@
     <ion-footer-bar>
         <h1 class="title"></h1>
         <div class="buttons">
-        	<button class="button" focus-index="13" next-focus-right="14" next-focus-up="12">左侧按钮</button>
-            <button class="button" focus-index="14" next-focus-left="13" next-focus-up="12">右侧按钮</button>
+        	<div class="button" focus-index="13" next-focus-right="14" next-focus-up="12">左侧按钮</div>
+            <div class="button" focus-index="14" next-focus-left="13" next-focus-up="12">右侧按钮</div>
         </div>
     </ion-footer-bar>
 </ion-view>
