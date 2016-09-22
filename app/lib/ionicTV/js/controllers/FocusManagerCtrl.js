@@ -1,12 +1,70 @@
 
 angular.module('ionicTV')
 
-.controller('FocusManagerCtrl', ['$scope', '$element', function ($scope, $element) {
+.controller('FocusManagerCtrl', ['$scope', '$element', '$attrs', 'FocusManagerDelegate', function ($scope, $element, $attrs, FocusManagerDelegate) {
 	var _self = this,
+        _enbled = false,
 		_focusElement, _holdTimer, _cancelEvent;
 
-	_self.init = init;
-	_self.setFocus = setFocus;
+    _self.setFocus = setFocus;
+    _self.suspend = suspend;
+	_self.resume = resume;
+
+    init();
+
+    function init () {
+        var resumeEvent = '$ionicView.afterEnter',
+            suspendEvent = '$ionicView.beforeLeave',
+            destroyEvent = '$destroy';
+
+        if ($attrs.focusManager) {
+            resumeEvent = $attrs.focusManager + '.shown';
+            suspendEvent = $attrs.focusManager + '.hidden';
+            destroyEvent = $attrs.focusManager + '.removed';
+        }
+
+        $scope.$on(resumeEvent, function () {
+            resume();
+        });
+        $scope.$on(suspendEvent, function () {
+            suspend();
+        });
+        $scope.$on(destroyEvent, function () {
+            suspend();
+        });
+    }
+
+    function suspend () {
+        if (!_enbled) {
+            return;
+        }
+
+        angular.element(document).off('keydown', onkeydown);
+        angular.element(document).off('keyup', onkeyup);
+
+        if ($attrs.focusManager) {
+            FocusManagerDelegate.resumeActive();
+        }
+
+        _enbled = false;
+    }
+
+    function resume () {
+        if (_enbled) {
+            return;
+        }
+
+        angular.element(document).keydown(onkeydown);
+        angular.element(document).keyup(onkeyup);
+
+        if (!$attrs.focusManager) {
+            FocusManagerDelegate.setActive(_self);
+        } else {
+            FocusManagerDelegate.suspendActive();
+        }
+
+        _enbled = true;
+    }
 
 	function setFocus (element) {
 		if (_focusElement) {
@@ -14,17 +72,6 @@ angular.module('ionicTV')
 		}
 		element.addClass('tvFocus');
 		_focusElement = element;
-	}
-
-	function init () {
-		$scope.$on('$ionicView.afterEnter', function () {
-            angular.element(document).keydown(onkeydown);
-		    angular.element(document).keyup(onkeyup);
-		});
-		$scope.$on('$ionicView.beforeLeave', function () {
-            angular.element(document).off('keydown', onkeydown);
-		    angular.element(document).off('keyup', onkeyup);
-		});
 	}
 
     function onkeydown(event) {

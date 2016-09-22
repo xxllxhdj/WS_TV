@@ -56,3 +56,40 @@
 }
 
 /***********************************************************home*******************************************************/
+
+/***********************************************************next*******************************************************/
+
+@media (min-width: 680px) {
+    .side-menu {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        min-height: 240px;
+        min-width: 300px;
+        max-width: 360px;
+        width: 35%;
+    }
+}
+
+.slide-in-right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+.slide-in-right.ng-enter,
+.slide-in-right > .ng-enter {
+    -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+    transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+}
+.slide-in-right.ng-enter-active,
+.slide-in-right > .ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.slide-in-right.ng-leave,
+.slide-in-right > .ng-leave {
+    -webkit-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms;
+}
+
+/***********************************************************next*******************************************************/
