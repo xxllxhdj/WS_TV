@@ -35,8 +35,7 @@ angular.module('WorkStationTV.controllers')
 			        { id: 6, name: '测试6' },
 			        { id: 7, name: '测试7' },
 			        { id: 8, name: '测试8' },
-			        { id: 9, name: '测试9' },
-			        { id: 10, name: '测试10'}
+			        { id: 9, name: '测试9' }
 			    ],
 			    valueField: 'id',
 			    displayField: 'name',

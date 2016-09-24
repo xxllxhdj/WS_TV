@@ -22,7 +22,7 @@ angular.module('ionicTV')
 		    var templateString = 
 		    '<ion-modal-view class="tv-list-view" tv-focus="modal">' +
 		        '<div class="title">{{data.title}}</div>' +
-		        '<ion-scroll>' +
+		        '<ion-scroll tv-scroll>' +
 		            '<ion-radio class="tv-list-radio" icon="ion-android-done" ng-model="data.value" ng-repeat="item in data.list" ' +
 		                'ng-value="\'{{item[data.valueField]}}\'" ng-click="onClick(item)" ' + 
 		                'focus-index="{{$index}}" next-focus-up="{{$index -1}}" next-focus-down="{{$index + 1}}"' + 

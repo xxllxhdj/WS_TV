@@ -68,6 +68,13 @@ angular.module('ionicTV')
 	    }
 
 		function setFocus (element, direction) {
+			
+			$scope.$broadcast('tvFocus.beforechange', {
+				direction: direction,
+				element: _focusElement,
+				nextElement: element
+			});
+
 			if (_focusElement) {
 				_focusElement.removeClass('tvFocus');
 			}
@@ -83,8 +90,16 @@ angular.module('ionicTV')
 				}
 				element.attr('next-focus-' + direction, _focusElement.attr('focus-index'));
 			}
+
+			var lastElement = _focusElement;
 			element.addClass('tvFocus');
 			_focusElement = element;
+
+			$scope.$broadcast('tvFocus.afterchange', {
+				direction: direction,
+				element: _focusElement,
+				lastElement: lastElement
+			});
 		}
 
 	    function onkeydown(event) {
@@ -134,7 +149,7 @@ angular.module('ionicTV')
 	            _focusElement.get(0).dispatchEvent(evt);
 	            return;
 	        }
-	        $scope.$broadcast('focusManager.hold' + direction);
+	        $scope.$broadcast('tvFocus.hold' + direction);
 	    }
 
 	    function onClick (event) {
