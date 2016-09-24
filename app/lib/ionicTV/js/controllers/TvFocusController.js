@@ -67,9 +67,21 @@ angular.module('ionicTV')
 	        _enbled = true;
 	    }
 
-		function setFocus (element) {
+		function setFocus (element, direction) {
 			if (_focusElement) {
 				_focusElement.removeClass('tvFocus');
+			}
+			if (_focusElement && direction) {
+				if (direction === 'up') {
+					direction = 'down';
+				} else if (direction === 'down') {
+					direction = 'up';
+				} else if (direction === 'left') {
+					direction = 'right';
+				} else if (direction === 'right') {
+					direction = 'left';
+				}
+				element.attr('next-focus-' + direction, _focusElement.attr('focus-index'));
 			}
 			element.addClass('tvFocus');
 			_focusElement = element;
@@ -146,7 +158,7 @@ angular.module('ionicTV')
 	    	if (elements.length === 0) {
 	    		return;
 	    	}
-	    	_self.setFocus(angular.element(elements[0]));
+	    	_self.setFocus(angular.element(elements[0]), direction);
 	    }
 
 	    function setDefaultFocus () {
