@@ -105,7 +105,8 @@ module.exports = function (grunt) {
                 cwd: '<%= config.app %>',
                 dest: '<%= config.temp %>',
                 src: [
-                    '<%= config.styles %>/*'
+                    '<%= config.styles %>/*',
+                    'lib/*/css/*'
                 ]
             },
             release: {
