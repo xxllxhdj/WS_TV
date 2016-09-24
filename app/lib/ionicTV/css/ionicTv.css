@@ -1,0 +1,59 @@
+
+/********************************************************tvDialog*****************************************************/
+
+.tv-list-view {
+    width: 350px;
+    margin: 0 auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+}
+.tv-list-view .title {
+    background-color: #eee;
+    color: #333;
+    padding: 20px 16px;
+    font-size: 24px;
+}
+.tv-list-view .scroll-view {
+    max-height: 378px;
+}
+.tv-list-view .scroll-view.scroll-y {
+    overflow-y: hidden;
+    margin-top: 0;
+}
+.tv-list-radio .radio-content .item-content {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 20px;
+}
+.tv-list-radio .radio-icon {
+    padding: 10px 14px;
+}
+.tv-list-radio input:checked + .radio-content .item-content,
+.tv-list-radio input:checked + .radio-content .radio-icon {
+    color: #0577c6;
+}
+
+.tv-slide-fade-in {
+  opacity: 0; }
+
+.tv-slide-fade-in.ng-enter,
+.tv-slide-fade-in > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.tv-slide-fade-in.ng-enter-active,
+.tv-slide-fade-in > .ng-enter-active {
+  opacity: 1; }
+
+.tv-slide-fade-in.ng-leave,
+.tv-slide-fade-in > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }
+
+.tv-list-view.ng-leave-active {
+    bottom: auto; }
+
+/********************************************************tvDialog*****************************************************/
