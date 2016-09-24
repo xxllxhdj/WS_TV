@@ -18,10 +18,10 @@ angular.module('ionicTV')
 	            suspendEvent = '$ionicView.beforeLeave',
 	            destroyEvent = '$destroy';
 
-	        if ($attrs.focusManager) {
-	            resumeEvent = $attrs.focusManager + '.shown';
-	            suspendEvent = $attrs.focusManager + '.hidden';
-	            destroyEvent = $attrs.focusManager + '.removed';
+	        if ($attrs.tvFocus) {
+	            resumeEvent = $attrs.tvFocus + '.shown';
+	            suspendEvent = $attrs.tvFocus + '.hidden';
+	            destroyEvent = $attrs.tvFocus + '.removed';
 	        }
 
 	        $scope.$on(resumeEvent, function () {
@@ -43,7 +43,7 @@ angular.module('ionicTV')
 	        angular.element(document).off('keydown', onkeydown);
 	        angular.element(document).off('keyup', onkeyup);
 
-	        if ($attrs.focusManager) {
+	        if ($attrs.tvFocus) {
 	            TvFocusManager.resumeActive();
 	        }
 
@@ -58,7 +58,7 @@ angular.module('ionicTV')
 	        angular.element(document).keydown(onkeydown);
 	        angular.element(document).keyup(onkeyup);
 
-	        if (!$attrs.focusManager) {
+	        if (!$attrs.tvFocus) {
 	            TvFocusManager.setActive(_self);
 	        } else {
 	            TvFocusManager.suspendActive();
