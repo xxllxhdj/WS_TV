@@ -4,11 +4,12 @@ angular.module('WorkStationTV.controllers')
 .controller('HomeController', ['$scope', '$state', '$cordovaToast', 'TvDialog',
 	function ($scope, $state, $cordovaToast, TvDialog) {
 		$scope.headerBtnLeft = function () {
-			if (window.cordova) {
-				$cordovaToast.showShortBottom('左侧按钮');
-			} else {
-				console.log('左侧按钮');
-			}
+			TvDialog.toastBottom('左侧按钮');
+			// if (window.cordova) {
+			// 	$cordovaToast.showShortBottom('左侧按钮');
+			// } else {
+			// 	console.log('左侧按钮');
+			// }
 		};
 
 		$scope.goNext = function () {
@@ -16,11 +17,7 @@ angular.module('WorkStationTV.controllers')
 		};
 
 		$scope.onHold = function () {
-			if (window.cordova) {
-				$cordovaToast.showShortBottom('onHold');
-			} else {
-				console.log('onHold');
-			}
+			TvDialog.toastCenter('onHold');
 		};
 
 		$scope.showList = function () {
@@ -41,11 +38,7 @@ angular.module('WorkStationTV.controllers')
 			    displayField: 'name',
 			    value: 8
 			}).then(function (select) {
-			    if (window.cordova) {
-			    	$cordovaToast.showShortBottom(angular.toJson(select));
-			    } else {
-			    	console.log(angular.toJson(select));
-			    }
+			    TvDialog.toastTop(angular.toJson(select));
 			});
 		};
 	}

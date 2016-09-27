@@ -1,5 +1,5 @@
 
-/********************************************************tvDialog*****************************************************/
+/*********************************************************tvList******************************************************/
 
 .tv-list-view {
     width: 350px;
@@ -56,4 +56,70 @@
 .tv-list-view.ng-leave-active {
     bottom: auto; }
 
-/********************************************************tvDialog*****************************************************/
+/*********************************************************tvList******************************************************/
+
+/*********************************************************tvToast*****************************************************/
+
+.tv-toast-view {
+    position: absolute;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 12px 20px;
+    left: 50%;
+    max-width: 95%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.tv-toast-view.toast-top {
+    top: 74px;
+}
+.platform-android.platform-cordova .tv-toast-view.toast-top {
+    top: 94px;
+}
+.tv-toast-view.toast-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.tv-toast-view.toast-bottom {
+    bottom: 80px;
+}
+.tv-toast-view.toast-block {
+    max-width: 100%;
+    left: 20px;
+    transform: none;
+    -webkit-transform: none;
+    right: 20px;
+    text-align: center;
+}
+.tv-toast-view.toast-top.toast-block {
+    top: 64px;
+    left: 0;
+    right: 0;
+}
+.platform-android.platform-cordova .tv-toast-view.toast-top.toast-block {
+    top: 84px;
+}
+
+.tv-toast-fade-in {
+  opacity: 0; }
+
+.tv-toast-fade-in.ng-enter,
+.tv-toast-fade-in > .ng-enter {
+  -webkit-transition: all ease-in-out 400ms;
+  transition: all ease-in-out 400ms; }
+
+.tv-toast-fade-in.ng-enter-active,
+.tv-toast-fade-in > .ng-enter-active {
+  opacity: 1; }
+
+.tv-toast-fade-in.ng-leave,
+.tv-toast-fade-in > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }
+
+/*********************************************************tvToast*****************************************************/
