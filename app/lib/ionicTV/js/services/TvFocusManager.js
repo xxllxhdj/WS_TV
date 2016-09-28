@@ -1,7 +1,7 @@
 
 angular.module('ionicTV')
 
-.service('TvFocusManager', function () {
+.factory('TvFocusManager', function () {
 	var _activeFocus;
 	return {
 		setActive: setActiveFocus,

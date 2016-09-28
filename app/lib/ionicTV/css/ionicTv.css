@@ -36,6 +36,10 @@
     color: #0577c6;
 }
 
+.tv-list-radio.tvFocus .radio-content .item-content {
+    color: #0577c6;
+}
+
 .tv-slide-fade-in {
   opacity: 0; }
 
@@ -123,3 +127,54 @@
   transition: all ease-in-out 250ms; }
 
 /*********************************************************tvToast*****************************************************/
+
+/*********************************************************tvPopup*****************************************************/
+
+.tv-popup .popup {
+    width: 380px;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+}
+.tv-popup .popup .popup-head {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding: 12px 10px 8px;
+}
+.tv-popup .popup .popup-head > * {
+    font-size: 20px;
+}
+.tv-popup .popup .popup-body {
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tv-popup .popup .popup-body > textarea {
+    min-height: 80px;
+    font-size: 18px;
+    resize: none;
+}
+.tv-popup .popup .popup-buttons {
+    padding: 0;
+    min-height: 45px;
+    background: #eee;
+    border-radius: 8px;
+}
+.tv-popup .popup .popup-buttons > .button {
+    margin-right: 0;
+    border-radius: 0;
+    font-size: 20px;
+    line-height: 42px;
+    background: transparent;
+    color: #666;
+    border-top: 1px solid #ccc;
+}
+.tv-popup .popup .popup-buttons > .button + .button {
+    border-left: 1px solid #ccc;
+}
+.tv-popup .popup .popup-buttons > .button.tvFocus {
+    color: #0577c6;
+}
+
+/*********************************************************tvPopup*****************************************************/

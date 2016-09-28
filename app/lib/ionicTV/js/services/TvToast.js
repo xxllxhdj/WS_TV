@@ -1,7 +1,7 @@
 
 angular.module('ionicTV')
 
-.service('TvToast', ['$q', '$rootScope', '$ionicModal', '$timeout', 
+.factory('TvToast', ['$q', '$rootScope', '$ionicModal', '$timeout', 
 	function ($q, $rootScope, $ionicModal, $timeout) {
 		return {
 			show: showToast

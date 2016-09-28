@@ -3,7 +3,7 @@
 /**********************************************************Common*****************************************************/
 
 .pane, .view {
-	background: blueviolet;
+	background: mediumpurple;
 }
 .bar-header,
 .bar-footer {
@@ -11,8 +11,8 @@
     background: transparent;
 }
 
-.tvFocus {
-	border-color: brown !important;
+.pane .tvFocus {
+	border-color: brown;
 }
 
 /**********************************************************Common******************************************************/

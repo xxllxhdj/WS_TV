@@ -1,7 +1,7 @@
 
 angular.module('ionicTV')
 
-.service('TvList', ['$q', '$rootScope', '$ionicModal', '$timeout', 
+.factory('TvList', ['$q', '$rootScope', '$ionicModal', '$timeout', 
 	function ($q, $rootScope, $ionicModal, $timeout) {
 		return {
 			show: showList

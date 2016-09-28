@@ -5,11 +5,6 @@ angular.module('WorkStationTV.controllers')
 	function ($scope, $state, $cordovaToast, TvDialog) {
 		$scope.headerBtnLeft = function () {
 			TvDialog.toastBottom('左侧按钮');
-			// if (window.cordova) {
-			// 	$cordovaToast.showShortBottom('左侧按钮');
-			// } else {
-			// 	console.log('左侧按钮');
-			// }
 		};
 
 		$scope.goNext = function () {
@@ -18,6 +13,16 @@ angular.module('WorkStationTV.controllers')
 
 		$scope.onHold = function () {
 			TvDialog.toastCenter('onHold');
+		};
+
+		$scope.showConfirm = function () {
+			TvDialog.confirm('测试测试').then(function (res) {
+				if (res) {
+					TvDialog.toastBottom('确认');
+				} else {
+					TvDialog.toastBottom('取消');
+				}
+			});
 		};
 
 		$scope.showList = function () {
