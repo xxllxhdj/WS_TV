@@ -43,6 +43,9 @@ angular.module('ionicTV')
 	        angular.element(document).off('keydown', onkeydown);
 	        angular.element(document).off('keyup', onkeyup);
 
+	        window.removeEventListener('native.keyboardshow', onKeyboardShow);
+	        window.removeEventListener('native.keyboardhide', onKeyboardHide);
+
 	        if ($attrs.tvFocus) {
 	            TvFocusManager.resumeActive();
 	        }
@@ -55,6 +58,9 @@ angular.module('ionicTV')
 	            return;
 	        }
 
+	        window.addEventListener('native.keyboardshow', onKeyboardShow);
+	        window.addEventListener('native.keyboardhide', onKeyboardHide);
+
 	        angular.element(document).keydown(onkeydown);
 	        angular.element(document).keyup(onkeyup);
 
@@ -65,6 +71,20 @@ angular.module('ionicTV')
 	        }
 
 	        _enbled = true;
+	    }
+
+	    function onKeyboardShow () {
+	    	if (!_enbled) {
+	    	    return;
+	    	}
+	    	suspend();
+	    }
+
+	    function onKeyboardHide () {
+	    	if (_enbled) {
+	    	    return;
+	    	}
+	    	resume();
 	    }
 
 		function setFocus (element, direction) {
@@ -95,6 +115,11 @@ angular.module('ionicTV')
 			element.addClass('tvFocus');
 			_focusElement = element;
 
+			// var inputReg = /^[INPUT|AREA|TEXTAREA]$/gi;
+			// if (inputReg.test(_focusElement.get(0).tagName)) {
+			// 	_focusElement.focus();
+			// }
+
 			$scope.$broadcast('tvFocus.afterchange', {
 				direction: direction,
 				element: _focusElement,
@@ -103,6 +128,8 @@ angular.module('ionicTV')
 		}
 
 	    function onkeydown(event) {
+	    	event.stopPropagation();
+	    	event.preventDefault();
 	        if (_cancelEvent) {
 	            return;
 	        }
@@ -123,6 +150,8 @@ angular.module('ionicTV')
 	    }
 
 	    function onkeyup(event) {
+	    	event.stopPropagation();
+	    	event.preventDefault();
 	        if (_holdTimer) {
 	            clearTimeout(_holdTimer);
 	            _holdTimer = null;
