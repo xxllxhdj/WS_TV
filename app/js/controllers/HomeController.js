@@ -11,6 +11,10 @@ angular.module('WorkStationTV.controllers')
 			$state.go('next');
 		};
 
+		$scope.goLast = function () {
+			$state.go('last');
+		};
+
 		$scope.onHold = function () {
 			TvDialog.toastCenter('onHold');
 		};

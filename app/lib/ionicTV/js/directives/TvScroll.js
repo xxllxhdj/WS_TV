@@ -27,19 +27,41 @@ angular.module('ionicTV')
 
 				if (scrollingX) {
 					var scrollWidth = $element.width(),
-						elWidth = nextEl.width();
-					if (elPos.left < 0) {
-						scrollByX = elPos.left;
+						elWidth = nextEl.width(),
+						elReLeft = elPos.left - scrollPos.left;
+
+					var marginLeft = parseInt($element.css('marginLeft').replace(/px/g, ''), 0),
+						marginRight = parseInt($element.css('marginRight').replace(/px/g, ''), 0);
+					if (marginLeft < 0) {
+						scrollHeight -= marginLeft;
+					}
+					if (marginRight < 0) {
+						scrollHeight -= marginRight;
+					}
+
+					if (elReLeft < 0) {
+						scrollByX = elReLeft;
 					} else if (elPos.left + elWidth > scrollWidth) {
 						scrollByX = elPos.left + elWidth - scrollWidth;
 					}
 				}
 				if (scrollingY) {
-					var scrollHeight = $element.height(),
-						elHeight = nextEl.height();
-					if (elPos.top < 0) {
-						scrollByY = elPos.top;
-					} else if (elPos.top + elHeight > scrollHeight) {
+					var scrollHeight = $element.innerHeight(),
+						elHeight = nextEl.innerHeight(),
+						elReTop = elPos.top - scrollPos.top;
+
+					var marginTop = parseInt($element.css('marginTop').replace(/px/g, ''), 0),
+						marginBottom = parseInt($element.css('marginBottom').replace(/px/g, ''), 0);
+					if (marginTop < 0) {
+						scrollHeight -= marginTop;
+					}
+					if (marginBottom < 0) {
+						scrollHeight -= marginBottom;
+					}
+
+					if (elReTop < 0) {
+						scrollByY = elReTop;
+					} else if (elReTop + elHeight > scrollHeight) {
 						scrollByY = elPos.top + elHeight - scrollHeight;
 					}
 				}
