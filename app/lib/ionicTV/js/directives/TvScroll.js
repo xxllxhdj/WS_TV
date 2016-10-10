@@ -19,7 +19,7 @@ angular.module('ionicTV')
 				}
 
 				var scrollPos = _scrollCtrl.getScrollPosition(),
-					elPos = nextEl.position(),
+					elPos = nextEl.get(0).getBoundingClientRect(),
 					scrollingX = _scrollCtrl._scrollViewOptions.scrollingX,
 					scrollingY = _scrollCtrl._scrollViewOptions.scrollingY,
 					scrollByX = 0, 
@@ -61,7 +61,7 @@ angular.module('ionicTV')
 
 					if (elReTop < 0) {
 						scrollByY = elReTop;
-					} else if (elReTop + elHeight > scrollHeight) {
+					} else if (elPos.top + elHeight > scrollHeight) {
 						scrollByY = elPos.top + elHeight - scrollHeight;
 					}
 				}

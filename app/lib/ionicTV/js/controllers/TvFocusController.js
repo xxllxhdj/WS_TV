@@ -5,7 +5,7 @@ angular.module('ionicTV')
 	function ($scope, $element, $attrs, TvFocusManager) {
 		var _self = this,
 	        _enbled = false,
-			_focusElement, _holdTimer, _cancelEvent;
+			_focusElement, _holdTimer, _cancelEvent, _inputElement;
 
 	    _self.setFocus = setFocus;
 	    _self.suspend = suspend;
@@ -81,6 +81,11 @@ angular.module('ionicTV')
 	    }
 
 	    function onKeyboardHide () {
+	    	if (_inputElement) {
+	    		_inputElement.blur();
+	    		_inputElement = null;
+	    	}
+
 	    	if (_enbled) {
 	    	    return;
 	    	}
@@ -114,11 +119,6 @@ angular.module('ionicTV')
 			var lastElement = _focusElement;
 			element.addClass('tvFocus');
 			_focusElement = element;
-
-			// var inputReg = /^[INPUT|AREA|TEXTAREA]$/gi;
-			// if (inputReg.test(_focusElement.get(0).tagName)) {
-			// 	_focusElement.focus();
-			// }
 
 			$scope.$broadcast('tvFocus.afterchange', {
 				direction: direction,
@@ -164,10 +164,6 @@ angular.module('ionicTV')
 	    }
 
 	    function onHold (event) {
-	        if (!_focusElement) {
-	            setDefaultFocus();
-	            return;
-	        }
 	        var direction = findDirection(event.keyCode);
 	        if (!direction) {
 	            return;
@@ -182,15 +178,12 @@ angular.module('ionicTV')
 	    }
 
 	    function onClick (event) {
-	    	if (!_focusElement) {
-	    		setDefaultFocus();
-	    		return;
-	    	}
 	        var direction = findDirection(event.keyCode);
 	    	if (!direction) {
 	    		return;
 	    	}
 	        if (direction === 'ok') {
+	            mayContainInput();
 	            _focusElement.trigger('click');
 	            return;
 	        }
@@ -203,6 +196,19 @@ angular.module('ionicTV')
 	    		return;
 	    	}
 	    	_self.setFocus(angular.element(elements[0]), direction);
+	    }
+
+	    function mayContainInput () {
+	    	var childrenNodes = _focusElement.children();
+	    	if (childrenNodes.length === 0) {
+	    		return;
+	    	}
+	    	var inputReg = /^(INPUT|TEXTAREA)$/gi,
+	    		childInput = childrenNodes.get(0);
+	    	if (inputReg.test(childInput.tagName)) {
+	    		_inputElement = angular.element(childInput);
+	    		_inputElement.focus();
+	    	}
 	    }
 
 	    function setDefaultFocus () {

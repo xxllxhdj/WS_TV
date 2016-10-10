@@ -28,6 +28,7 @@ angular.module('WorkStationTV', [
                         }, APPCONSTANTS.splashScreenExtraDelay);
                     });
                 }
+                ionic.Platform.isFullScreen = true;
             });
         }
     ])
